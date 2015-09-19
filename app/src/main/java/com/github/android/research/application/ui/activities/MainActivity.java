@@ -1,9 +1,11 @@
-package com.github.android.research;
+package com.github.android.research.application.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.github.android.research.R;
 
 public class MainActivity extends AppCompatActivity {
 
