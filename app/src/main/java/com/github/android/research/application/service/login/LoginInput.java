@@ -1,6 +1,8 @@
 package com.github.android.research.application.service.login;
 
-public class LoginInput {
+import com.github.android.research.application.service.AbstractInput;
+
+public class LoginInput extends AbstractInput {
     protected String username;
     protected String password;
 
