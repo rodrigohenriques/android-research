@@ -1,1 +1,1 @@
-include ':app', ':mockserver'
+include ':app', ':mock-server'
