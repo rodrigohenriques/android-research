@@ -1,9 +1,7 @@
 package com.github.android.research.application.ui.activities;
 
 import android.content.Intent;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.widget.EditText;
 
 import com.github.android.research.R;
@@ -29,11 +27,11 @@ public class LoginActivity extends BaseActivity implements ApplicationServiceCal
     @Named(ApplicationModule.LOGIN_SERVICE)
     ApplicationService<LoginInput, LoginOutput> loginService;
 
-    @Inject
-    LocationManager locationManager;
-
-    @Inject
-    PowerManager powerManager;
+//    @Inject
+//    LocationManager locationManager;
+//
+//    @Inject
+//    PowerManager powerManager;
 
     @Override
     protected int getContentView() {
@@ -53,8 +51,7 @@ public class LoginActivity extends BaseActivity implements ApplicationServiceCal
 
         LoginInput input = new LoginInput(username, password);
 
-        input.setLocation(locationManager);
-        input.setBatteryLevel(powerManager.);
+        //input.setLocation(locationManager);
 
         loginService.execute(input, this);
     }
@@ -62,7 +59,6 @@ public class LoginActivity extends BaseActivity implements ApplicationServiceCal
     @Override
     public void onSuccess(LoginOutput loginOutput) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra()
     }
 
     @Override

@@ -4,6 +4,15 @@ android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
+    signingConfigs {
+        signDebug {
+            storeFile file('keystore/debug.keystore')
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
+    }
+
     defaultConfig {
         applicationId "com.github.android.research"
         minSdkVersion 8
@@ -17,6 +26,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        mock {
+            signingConfig signingConfigs.signDebug
+            debuggable true
+        }
     }
 }
 
@@ -27,6 +40,7 @@ dependencies {
     compile 'com.android.support:design:22.2.1'
     compile 'com.android.support:cardview-v7:22.2.1'
     compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.squareup.okhttp:mockwebserver:2.5.0'
 
     compile 'com.jakewharton:butterknife:7.0.1'
 

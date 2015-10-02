@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.github.android.research"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name="com.m4u.mockserver.MockApplication"
+        tools:replace="android:name">
+    </application>
+
+</manifest>

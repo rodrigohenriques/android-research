@@ -1,43 +1,47 @@
 package com.github.android.research.application.service.login;
 
-import android.os.AsyncTask;
-
 import com.github.android.research.application.service.ApplicationService;
 import com.github.android.research.application.service.ApplicationServiceCallback;
+import com.github.android.research.application.service.ApplicationServiceError;
 import com.github.android.research.domain.model.Research;
+import com.github.android.research.infrastructure.backend.AuthResponse;
+import com.github.android.research.infrastructure.backend.BackendService;
+import com.google.inject.Inject;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+
 public class LoginService implements ApplicationService<LoginInput, LoginOutput> {
+    @Inject
+    BackendService backendService;
 
     @Override
     public void execute(LoginInput loginInput, final ApplicationServiceCallback<LoginOutput> callback) {
-        new AsyncTask<Void, Void, LoginOutput>() {
+        Call<AuthResponse> call = backendService.auth(loginInput.username,
+                loginInput.password,
+                loginInput.getDeviceId(),
+                loginInput.getLocation(),
+                loginInput.getConnectionType(),
+                loginInput.getBatteryLevel());
 
+        call.enqueue(new Callback<AuthResponse>() {
             @Override
-            protected LoginOutput doInBackground(Void... params) {
-
-                List<Research> researches = new ArrayList<>();
-
-                try {
-                    Thread.sleep(5000);
-
-                    researches.add(new Research(1, "Pesquisa 1"));
-                    researches.add(new Research(2, "Pesquisa 2"));
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            public void onResponse(Response<AuthResponse> response) {
+                if (response.isSuccess()){
+                    List<Research> researches = response.body().getResearches();
+                    LoginOutput loginOutput = new LoginOutput(researches);
+                    callback.onSuccess(loginOutput);
                 }
-
-                return new LoginOutput(Collections.unmodifiableList(researches));
             }
 
             @Override
-            protected void onPostExecute(final LoginOutput output) {
-                callback.onSuccess(output);
+            public void onFailure(Throwable t) {
+                ApplicationServiceError error = new ApplicationServiceError("561", t.getMessage(), new Exception(t));
+                callback.onError(error);
             }
-        }.execute();
+        });
     }
 }

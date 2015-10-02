@@ -1,9 +1,7 @@
 package com.github.android.research.application.module;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 import android.os.Build;
-import android.support.annotation.Nullable;
 
 import com.github.android.research.BuildConfig;
 import com.github.android.research.application.Constants;
@@ -23,8 +21,6 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.Map;
-import java.util.Set;
 
 import retrofit.Retrofit;
 
@@ -63,7 +59,7 @@ public class ApplicationModule extends AbstractModule {
                         .addHeader(Constants.Headers.PLATFORM, "ANDROID")
                         .addHeader(Constants.Headers.PLATFORM_VERSION, Build.VERSION.CODENAME)
                         .addHeader(Constants.Headers.TIMESTAMP, printNow())
-                        .addHeader(Constants.Headers.VERSION_NAME, printNow())
+                        .addHeader(Constants.Headers.VERSION_NAME, BuildConfig.VERSION_NAME)
                         .build();
 
                 Response response = chain.proceed(newRequest);
@@ -71,7 +67,7 @@ public class ApplicationModule extends AbstractModule {
                 String token = response.header("token");
 
                 if (token != null) {
-                    SharedPreferences preferences = application.getSharedPreferences();
+                    //SharedPreferences preferences = application.getSharedPreferences();
                 }
 
                 return response;

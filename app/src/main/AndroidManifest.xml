@@ -13,7 +13,7 @@
 
         <meta-data
             android:name="roboguice.modules"
-            android:value="com.github.android.research.infrastructure.modules.ApplicationModule" />
+            android:value="com.github.android.research.application.module.ApplicationModule" />
 
         <activity
             android:name=".application.ui.activities.LoginActivity"
