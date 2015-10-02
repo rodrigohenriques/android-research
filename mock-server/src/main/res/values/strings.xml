@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">App Controle - Mock Server</string>
+    <string name="pref_delay_response">Tempo de espera</string>
+    <string name="pref_delay_response_summary">Em milissegundos</string>
+    <string name="pref_response_title">RESPONSE</string>
+
+    <string name="title_activity_main">@string/app_name</string>
+    <string name="title_activity_settings">@string/action_settings</string>
+
+    <string name="action_settings">Configurações</string>
+    <string name="action_start_mock_server">Iniciar mock server</string>
+    <string name="action_stop_mock_server">Parar mock server</string>
+    <string name="key_pref_response_delay">pref_delay_response</string>
+</resources>
