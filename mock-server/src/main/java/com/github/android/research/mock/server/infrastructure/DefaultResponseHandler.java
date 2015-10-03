@@ -9,7 +9,7 @@ public class DefaultResponseHandler implements MockResponseHandler {
 
     public MockResponse response(final RecordedRequest request) {
 
-        MockOperationResponse mockOperationResponse = new MockOperationResponse();
+        MockResponseFactory mockResponseFactory = new MockResponseFactory();
 
         path = request.getPath();
 
@@ -20,10 +20,20 @@ public class DefaultResponseHandler implements MockResponseHandler {
             if (path.contains("/user/auth/")) {
 
                 if (path.contains("rodrigo/1234")) {
-                    responseBody = mockOperationResponse.loginSuccess();
+                    responseBody = mockResponseFactory.loginSuccess();
+                    MockResponse mockResponse = new MockResponse().setResponseCode(responseCode).setBody(responseBody);
+                    mockResponse.addHeader("token", "ASDH3-23R3ER-WEFWQEFE-EFW");
+                    return mockResponse;
                 } else {
-                    responseBody = mockOperationResponse.loginFail();
-                    responseCode = 201;
+                    responseBody = mockResponseFactory.loginFail();
+                }
+            } else if (path.contains("/research")) {
+
+                if (request.getHeaders().get("token") != null) {
+                    responseBody = mockResponseFactory.researchSuccess();
+                } else {
+                    responseCode = 401;
+                    responseBody = mockResponseFactory.unauthorized();
                 }
             } else {
                 responseCode = 404;

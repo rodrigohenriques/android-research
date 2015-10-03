@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId "com.github.android.research"
-        minSdkVersion 8
+        minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -29,7 +29,13 @@ android {
         mock {
             signingConfig signingConfigs.signDebug
             debuggable true
+            buildConfigField "String", "BACKEND_SERVICE_BASE_URL", "$backendServiceUrlMock"
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
     }
 }
 
@@ -44,7 +50,8 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:7.0.1'
 
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
 
     compile 'org.roboguice:roboguice:3.+'
     provided 'org.roboguice:roboblender:3.+'

@@ -1,17 +1,19 @@
 package com.github.android.research.application.service.login;
 
-import com.github.android.research.domain.model.Research;
-
-import java.util.List;
-
 public class LoginOutput {
-    List<Research> researches;
+    String username;
+    String token;
 
-    public LoginOutput(List<Research> researches) {
-        this.researches = researches;
+    public LoginOutput(String username, String token) {
+        this.username = username;
+        this.token = token;
     }
 
-    public int researchesCount() {
-        return researches != null ? researches.size() : 0;
+    public String username() {
+        return username;
+    }
+
+    public String token() {
+        return token;
     }
 }

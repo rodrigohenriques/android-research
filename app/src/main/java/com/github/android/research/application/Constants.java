@@ -11,5 +11,12 @@ public class Constants {
         public static final String CONNECTION_TYPE = "connectionType";
         public static final String DEVICE_ID = "deviceId";
         public static final String LOCATION = "location";
+
+        public static final String TOKEN = "token";
+    }
+
+    public class Extras {
+        public static final String USERNAME = "username";
+        public static final String RESEARCHES_JSON = "researches";
     }
 }

@@ -10,10 +10,17 @@ import retrofit.http.Header;
 import retrofit.http.Path;
 
 public interface BackendService {
-    @GET("/user/auth/{user}/{password}")
-    Call<AuthResponse> auth(
+    @GET("user/auth/{user}/{password}")
+    Call<ServiceResponse> auth(
             @Path("user") String user,
             @Path("password") String password,
+            @Header(Constants.Headers.DEVICE_ID) String deviceId,
+            @Header(Constants.Headers.LOCATION) Location location,
+            @Header(Constants.Headers.CONNECTION_TYPE) String connectionType,
+            @Header(Constants.Headers.BATTERY_LEVEL) String batteryLevel);
+
+    @GET("research")
+    Call<ResearchResponse> research(
             @Header(Constants.Headers.DEVICE_ID) String deviceId,
             @Header(Constants.Headers.LOCATION) Location location,
             @Header(Constants.Headers.CONNECTION_TYPE) String connectionType,

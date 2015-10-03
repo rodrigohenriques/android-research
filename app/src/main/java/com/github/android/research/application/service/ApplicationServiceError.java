@@ -11,6 +11,11 @@ public class ApplicationServiceError {
         this.e = e;
     }
 
+    public ApplicationServiceError(String code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
     public String getCode() {
         return code;
     }

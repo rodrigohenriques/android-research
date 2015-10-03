@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:background="?attr/colorPrimaryDark"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/nav_header_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_sair"
+        android:background="@drawable/btn_flat_selector"
+        android:padding="@dimen/btn_flat_padding"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_above="@+id/nav_header_textview_greeting"
+        android:layout_margin="@dimen/default_margin"/>
+
+    <TextView
+        android:id="@+id/nav_header_textview_greeting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bem-vindo"
+        android:layout_marginLeft="@dimen/nav_header_text_margin"
+        android:layout_above="@+id/nav_header_username"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+    <TextView
+        android:id="@+id/nav_header_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fulano de Tal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/nav_header_text_margin"
+        android:layout_marginLeft="@dimen/nav_header_text_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+</RelativeLayout>

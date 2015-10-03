@@ -7,4 +7,11 @@
     <string name="hint_username">Usuário</string>
     <string name="hint_password">Senha</string>
     <string name="hint_login">Entrar</string>
+    <string name="text_close">FECHAR</string>
+    <string name="title_about_us_fragment">Sobre</string>
+    <string name="title_profile">Perfil</string>
+    <string name="title_researches">Pesquisas</string>
+    <string name="default_snackbar_action">OK</string>
+    <string name="log_tag">Research</string>
+    <string name="empty_list">Nenhuma pesquisa cadastrada para este usuário</string>
 </resources>
