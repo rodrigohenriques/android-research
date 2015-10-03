@@ -39,7 +39,7 @@ public class DefaultResponseHandler implements MockResponseHandler {
                 responseCode = 404;
             }
         } catch (Exception e) {
-            new MockResponse().setResponseCode(404);
+            return new MockResponse().setResponseCode(404);
         }
 
         return new MockResponse().setResponseCode(responseCode).setBody(responseBody);
