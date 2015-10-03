@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ResearchesFragment extends MainFragment implements ResearchRecyclerViewAdapter.OnItemClickListener {
-    @Bind(R.id.simulation_textview_empty_list)
+    @Bind(R.id.researches_textview_empty_list)
     View emptyList;
 
     @Bind(R.id.swipe_refresh_layout)

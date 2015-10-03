@@ -19,7 +19,7 @@
 
 
     <RelativeLayout
-        android:id="@+id/simulation_textview_empty_list"
+        android:id="@+id/researches_textview_empty_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
